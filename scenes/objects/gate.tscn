@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyjvaanm7ycw3"]
+
+[ext_resource type="Texture2D" uid="uid://cfboig20s800e" path="res://graphics/objects/gate.png" id="1_pxmsk"]
+
+[node name="Gate" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pxmsk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(1563, -781, -1436, -809, -1438, 537, -1422, 626, -1374, 699, -1307, 749, -1222, 778, -365, 778, -365, 548, 493, 548, 493, 779, 1347, 779, 1422, 753, 1487, 702, 1536, 632, 1563, 548)
