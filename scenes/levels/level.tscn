@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://3vt4g4kuufp5"]
+[gd_scene load_steps=7 format=3 uid="uid://3vt4g4kuufp5"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_i4wg4"]
 [ext_resource type="PackedScene" uid="uid://21f4vyhhv3pd" path="res://scenes/player/player.tscn" id="2_e5hju"]
@@ -6,9 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bkihy4or2hetl" path="res://scenes/enemies/drone.tscn" id="4_mm83r"]
 [ext_resource type="PackedScene" uid="uid://dqmy7olf182kj" path="res://scenes/objects/box.tscn" id="5_10p14"]
 [ext_resource type="PackedScene" uid="uid://cyjvaanm7ycw3" path="res://scenes/objects/gate.tscn" id="6_w0p07"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mi132"]
-size = Vector2(856, 230)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_i4wg4")
@@ -20,6 +17,8 @@ position = Vector2(792, 440)
 position = Vector2(-559, -25)
 rotation = 3.13297
 
+[node name="Projectiles" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("2_e5hju")]
 position = Vector2(312, 515)
 
@@ -29,10 +28,6 @@ position = Vector2(130, 119)
 [node name="Gate" parent="." instance=ExtResource("6_w0p07")]
 position = Vector2(189, -940)
 
-[node name="Area2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(252, -277)
-shape = SubResource("RectangleShape2D_mi132")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="grenade" from="Player" to="." method="_on_player_grenade"]
+[connection signal="laser" from="Player" to="." method="_on_player_laser"]
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
