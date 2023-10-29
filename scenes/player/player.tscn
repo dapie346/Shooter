@@ -9,8 +9,9 @@ radius = 59.0085
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_7lcjn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2, -36)
+[node name="PlayerImage" type="Sprite2D" parent="."]
+position = Vector2(37, 2)
+rotation = 1.5708
 texture = ExtResource("2_3tkh8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -25,6 +26,7 @@ wait_time = 0.5
 [node name="GrenadeTimer" type="Timer" parent="."]
 
 [node name="LaserStartPositions" type="Node2D" parent="."]
+rotation = 1.5708
 
 [node name="Position1" type="Marker2D" parent="LaserStartPositions"]
 position = Vector2(21, -132)
@@ -36,6 +38,7 @@ position = Vector2(26, -127)
 position = Vector2(17, -127)
 
 [node name="GrenadeStartPositions" type="Node2D" parent="."]
+rotation = 1.5708
 
 [node name="Position1" type="Marker2D" parent="GrenadeStartPositions"]
 position = Vector2(5, -94)
