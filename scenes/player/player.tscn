@@ -18,36 +18,25 @@ texture = ExtResource("2_3tkh8")
 shape = SubResource("CircleShape2D_a34w3")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
+zoom = Vector2(0.6, 0.6)
+position_smoothing_enabled = true
 
 [node name="LaserTimer" type="Timer" parent="."]
 wait_time = 0.5
 
 [node name="GrenadeTimer" type="Timer" parent="."]
 
-[node name="LaserStartPositions" type="Node2D" parent="."]
+[node name="ParticleStartPositions" type="Node2D" parent="."]
 rotation = 1.5708
 
-[node name="Position1" type="Marker2D" parent="LaserStartPositions"]
+[node name="Position1" type="Marker2D" parent="ParticleStartPositions"]
 position = Vector2(21, -132)
 
-[node name="Position2" type="Marker2D" parent="LaserStartPositions"]
+[node name="Position2" type="Marker2D" parent="ParticleStartPositions"]
 position = Vector2(26, -127)
 
-[node name="Position3" type="Marker2D" parent="LaserStartPositions"]
+[node name="Position3" type="Marker2D" parent="ParticleStartPositions"]
 position = Vector2(17, -127)
-
-[node name="GrenadeStartPositions" type="Node2D" parent="."]
-rotation = 1.5708
-
-[node name="Position1" type="Marker2D" parent="GrenadeStartPositions"]
-position = Vector2(5, -94)
-
-[node name="Position2" type="Marker2D" parent="GrenadeStartPositions"]
-position = Vector2(35, -37)
-
-[node name="Position3" type="Marker2D" parent="GrenadeStartPositions"]
-position = Vector2(34, -77)
 
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
 [connection signal="timeout" from="GrenadeTimer" to="." method="_on_grenade_timer_timeout"]
