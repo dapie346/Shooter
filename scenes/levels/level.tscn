@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://3vt4g4kuufp5"]
+[gd_scene load_steps=20 format=3 uid="uid://3vt4g4kuufp5"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_i4wg4"]
 [ext_resource type="PackedScene" uid="uid://21f4vyhhv3pd" path="res://scenes/player/player.tscn" id="2_e5hju"]
@@ -8,12 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cl735ya7yo85j" path="res://graphics/tilesets/outside_walls.png" id="4_ecmma"]
 [ext_resource type="Texture2D" uid="uid://ptxfkj2j2gvj" path="res://graphics/tilesets/ceiling.png" id="5_e582v"]
 [ext_resource type="PackedScene" uid="uid://cyjvaanm7ycw3" path="res://scenes/objects/gate.tscn" id="6_w0p07"]
+[ext_resource type="PackedScene" uid="uid://c1swy0q34j3j5" path="res://scenes/objects/steam_vent.tscn" id="6_ymonx"]
 [ext_resource type="Texture2D" uid="uid://dtb7b6atx8nwj" path="res://graphics/decals/moss/moss_1.png" id="8_g55ja"]
 [ext_resource type="Texture2D" uid="uid://2so6ejs8upft" path="res://graphics/decals/moss/moss_2.png" id="9_fysn0"]
 [ext_resource type="Texture2D" uid="uid://i0kqsuaxmtu7" path="res://graphics/decals/moss/moss_3.png" id="10_830lu"]
 [ext_resource type="Texture2D" uid="uid://c175gsdbudrvf" path="res://graphics/decals/moss/moss_4.png" id="11_gwc1f"]
 [ext_resource type="Texture2D" uid="uid://8hf0fou7h7bc" path="res://graphics/decals/moss/moss_5.png" id="12_2aj38"]
-[ext_resource type="PackedScene" uid="uid://diqqj5gvbij76" path="res://scenes/levels/house.tscn" id="13_5yecp"]
+[ext_resource type="PackedScene" uid="uid://diqqj5gvbij76" path="res://scenes/objects/house.tscn" id="13_su6bt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4mpry"]
 resource_name = "Soil"
@@ -354,12 +355,16 @@ position = Vector2(1984, 5065)
 rotation = -2.28638
 texture = ExtResource("12_2aj38")
 
-[node name="House" parent="." instance=ExtResource("13_5yecp")]
-position = Vector2(8472, 191)
-rotation = 1.57079
-scale = Vector2(0.4, 0.4)
+[node name="SteamVent" parent="Terrain/Decorations" instance=ExtResource("6_ymonx")]
+position = Vector2(-240, 130)
+
+[node name="SteamVent2" parent="Terrain/Decorations" instance=ExtResource("6_ymonx")]
+position = Vector2(874, 85)
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="House" parent="." instance=ExtResource("13_su6bt")]
+position = Vector2(-3712, 592)
 
 [node name="Player" parent="." instance=ExtResource("2_e5hju")]
 position = Vector2(312, 515)

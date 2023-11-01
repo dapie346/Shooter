@@ -26,6 +26,7 @@ func _process(_delta):
 	if Input.is_action_pressed("primary_action") and can_laser:
 		can_laser = false
 		$LaserTimer.start()
+		$GunfireParticles.emitting = true
 		laser.emit(pos, pointing_direction)
 		
 	#grenade input
