@@ -361,10 +361,10 @@ position = Vector2(-240, 130)
 [node name="SteamVent2" parent="Terrain/Decorations" instance=ExtResource("6_ymonx")]
 position = Vector2(874, 85)
 
-[node name="Projectiles" type="Node2D" parent="."]
-
 [node name="House" parent="." instance=ExtResource("13_su6bt")]
 position = Vector2(-3712, 592)
+
+[node name="Projectiles" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_e5hju")]
 position = Vector2(312, 515)

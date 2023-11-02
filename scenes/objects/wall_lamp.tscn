@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://c46te8ly6nw4o"]
+
+[ext_resource type="Texture2D" uid="uid://cfexj7hbdnkya" path="res://graphics/objects/wall_lamp.png" id="1_ea2ds"]
+[ext_resource type="Texture2D" uid="uid://b1tjhapjywgy" path="res://graphics/lights/textures/circle.png" id="2_io28d"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_sr5fl"]
+polygon = PackedVector2Array(-287, -79, -253, -66, -253, -44, -260, -44, -287, -41, -320, -28, -342, -12, -364, 10, -384, 34, -399, 61, -419, 16, -398, -12, -376, -36, -347, -60, -316, -74)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_b8p1i"]
+polygon = PackedVector2Array(-223, 0, -223, -7, -221, -10, -218, -11, -214, -11, -212, -10, -211, -6, -211, 49, -214, 49, -220, 54, -235, 66, -239, 66, -243, 68, -246, 68, -248, 65, -246, 61, -242, 59, -238, 55, -224, 43, -224, 40, -227, 38, -227, 3)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_pqawd"]
+polygon = PackedVector2Array(-253, -66, -253, -44, 253, -44, 253, -66)
+
+[node name="WallLamp" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(11, 14)
+polygon = PackedVector2Array(-407, 54, -428, 4, -416, -14, -395, -40, -375, -60, -355, -74, -331, -84, -310, -90, -297, -91, -293, -94, 267, -94, 269, -91, 287, -91, 305, -86, 331, -75, 355, -59, 368, -48, 408, 3, 385, 55, 367, 63, 252, 63, 242, 69, 227, 69, 218, 63, -238, 63, -248, 70, -263, 70, -271, 61, -400, 61)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ea2ds")
+region_enabled = true
+region_rect = Rect2(0, 0, 837.487, 166.062)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 20)
+color = Color(0.792157, 0.443137, 1, 1)
+energy = 7.5
+shadow_enabled = true
+shadow_color = Color(0.129412, 0.0745098, 0.113725, 0)
+shadow_filter = 1
+texture = ExtResource("2_io28d")
+texture_scale = 3.0
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_sr5fl")
+occluder_light_mask = 0
+
+[node name="LightOccluder2D4" type="LightOccluder2D" parent="."]
+light_mask = 2
+scale = Vector2(-1, 1)
+occluder = SubResource("OccluderPolygon2D_sr5fl")
+occluder_light_mask = 0
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_b8p1i")
+
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="."]
+scale = Vector2(-1, 1)
+occluder = SubResource("OccluderPolygon2D_b8p1i")
+
+[node name="LightOccluder2D5" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_pqawd")
+occluder_light_mask = 0
