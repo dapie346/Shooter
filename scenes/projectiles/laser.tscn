@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nc81j"]
 radius = 4.0
-height = 86.0
+height = 90.0
 
 [node name="Laser" type="Area2D"]
 collision_layer = 8
@@ -18,3 +18,10 @@ texture = ExtResource("1_q4n2a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_nc81j")
+
+[node name="SelfDestructTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="SelfDestructTimer" to="." method="_on_self_destruct_timer_timeout"]

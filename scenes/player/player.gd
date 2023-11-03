@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: int = 500
+@export var max_speed: int = 500
 var can_laser: bool = true
 var can_grenade: bool = true
 
@@ -10,7 +10,7 @@ signal grenade(pos, direction)
 func _process(_delta):
 	#move input
 	var move_direction = Input.get_vector("left", "right", "up", "down")
-	velocity = move_direction * speed
+	velocity = move_direction * max_speed
 	move_and_slide()
 	
 	#rotate player

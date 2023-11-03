@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqmy7olf182kj"]
+[gd_scene load_steps=5 format=3 uid="uid://bfmhi88rmdvjq"]
 
 [ext_resource type="Texture2D" uid="uid://c14rhu7femj5p" path="res://graphics/objects/Box.png" id="1_c3bsv"]
+[ext_resource type="PackedScene" uid="uid://daveifox5f63o" path="res://scenes/objects/item_container.tscn" id="1_efn1c"]
+[ext_resource type="Script" path="res://scenes/objects/box.gd" id="2_jlkx1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7v82"]
-size = Vector2(354, 254)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uocun"]
+size = Vector2(354, 246)
 
-[node name="Box" type="StaticBody2D"]
-collision_layer = 4
+[node name="Box" instance=ExtResource("1_efn1c")]
+script = ExtResource("2_jlkx1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("RectangleShape2D_uocun")
+
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("1_c3bsv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_r7v82")

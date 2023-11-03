@@ -1,9 +1,11 @@
-[gd_scene load_steps=43 format=3 uid="uid://diqqj5gvbij76"]
+[gd_scene load_steps=45 format=3 uid="uid://diqqj5gvbij76"]
 
 [ext_resource type="Texture2D" uid="uid://rj8wpalgb42" path="res://graphics/tilesets/soil.png" id="1_ohq50"]
+[ext_resource type="Script" path="res://scenes/objects/house.gd" id="1_ycvgv"]
 [ext_resource type="Texture2D" uid="uid://cl735ya7yo85j" path="res://graphics/tilesets/outside_walls.png" id="2_bhkx8"]
 [ext_resource type="Texture2D" uid="uid://d37ac1f1rhq2u" path="res://graphics/tilesets/interior.png" id="3_5e01a"]
 [ext_resource type="Texture2D" uid="uid://ptxfkj2j2gvj" path="res://graphics/tilesets/ceiling.png" id="4_rypvk"]
+[ext_resource type="PackedScene" uid="uid://b2t0whjogxxb3" path="res://scenes/objects/light_fan_animation.tscn" id="5_ocxsq"]
 [ext_resource type="PackedScene" uid="uid://bhqle3icu7jdy" path="res://scenes/objects/bed.tscn" id="5_ors2d"]
 [ext_resource type="PackedScene" uid="uid://dqmy7olf182kj" path="res://scenes/objects/box.tscn" id="6_7jtdr"]
 [ext_resource type="PackedScene" uid="uid://c46te8ly6nw4o" path="res://scenes/objects/wall_lamp.tscn" id="7_3nhfr"]
@@ -621,6 +623,7 @@ sources/3 = SubResource("TileSetAtlasSource_in2we")
 
 [node name="House" type="Area2D"]
 collision_layer = 16
+script = ExtResource("1_ycvgv")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(770, 273, 1211, 273, 1286, 254, 1365, 205, 1417, 135, 1442, 47, 1442, -1210.68, 1414, -1287, 1377, -1348, 1317, -1394, 1232.6, -1431, -1207, -1431, -1274, -1412, -1340, -1374, -1395, -1314, -1427, -1240, -1434, -1191, -1433, 1617, -1403, 1705, -1357, 1765, -1290, 1810, -1207, 1833, 431, 1833, 503, 1813, 584, 1766, 632, 1697, 657, 1620, 657, 452, 660, 373, 678, 320, 717, 286)
@@ -652,18 +655,6 @@ layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array()
-
-[node name="Objects" type="Node2D" parent="."]
-
-[node name="Bed" parent="Objects" instance=ExtResource("5_ors2d")]
-position = Vector2(823, -1094)
-
-[node name="Bed2" parent="Objects" instance=ExtResource("5_ors2d")]
-position = Vector2(841, -61)
-
-[node name="Box" parent="Objects" instance=ExtResource("6_7jtdr")]
-position = Vector2(-1112, -999)
-rotation = 4.71239
 
 [node name="Lamps" type="Node2D" parent="."]
 
@@ -698,3 +689,30 @@ rotation = 4.71239
 [node name="SimpleLight5" parent="Lamps" instance=ExtResource("8_rysfs")]
 position = Vector2(531, 591)
 rotation = 1.5708
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="Bed" parent="Objects" instance=ExtResource("5_ors2d")]
+position = Vector2(823, -1094)
+
+[node name="Bed2" parent="Objects" instance=ExtResource("5_ors2d")]
+position = Vector2(841, -61)
+
+[node name="Box" parent="Objects" instance=ExtResource("6_7jtdr")]
+position = Vector2(-1112, -999)
+rotation = 4.71239
+
+[node name="LightFanAnimation" parent="Objects" instance=ExtResource("5_ocxsq")]
+position = Vector2(974, -531)
+autoplay = "default"
+
+[node name="LightFanAnimation2" parent="Objects" instance=ExtResource("5_ocxsq")]
+position = Vector2(-588, -558)
+autoplay = "default"
+
+[node name="LightFanAnimation3" parent="Objects" instance=ExtResource("5_ocxsq")]
+position = Vector2(-588, 1378)
+autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
