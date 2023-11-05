@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3nhh4jtoc4l5"]
+[gd_scene load_steps=3 format=3 uid="uid://r8x0p6wgplvo"]
 
-[ext_resource type="PackedScene" uid="uid://3vt4g4kuufp5" path="res://scenes/levels/level.tscn" id="1_a0tyy"]
-[ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_3sa0r"]
+[ext_resource type="PackedScene" uid="uid://3vt4g4kuufp5" path="res://scenes/levels/level.tscn" id="1_4cexo"]
+[ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_vq4pu"]
 
-[node name="Inside" instance=ExtResource("1_a0tyy")]
-script = ExtResource("2_3sa0r")
+[node name="Inside" instance=ExtResource("1_4cexo")]
+script = ExtResource("2_vq4pu")
