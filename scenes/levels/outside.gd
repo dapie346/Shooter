@@ -1,6 +1,6 @@
 extends LevelParent
 
-@export var inside_level_scene: PackedScene
+#@export var inside_level_scene: PackedScene
 
 func _on_house_player_entered():
 	var tween = create_tween()
@@ -18,4 +18,4 @@ func _on_gate_player_entered_gate(_body):
 	tween.tween_property($Player, "modulate:a", 0, 1)
 	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.8, 0.8), 1)
 	tween.tween_property($Player, "max_speed", 0, 0.5)
-	get_tree().change_scene_to_packed(inside_level_scene)
+	get_tree().change_scene_to_file("res://scenes/levels/inside.tscn")

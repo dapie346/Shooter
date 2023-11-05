@@ -1,11 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://jsixdp2jsv6p"]
+[gd_scene load_steps=12 format=3 uid="uid://jsixdp2jsv6p"]
 
 [ext_resource type="PackedScene" uid="uid://3vt4g4kuufp5" path="res://scenes/levels/level.tscn" id="1_33hl0"]
 [ext_resource type="Texture2D" uid="uid://d2pwxo0votfq8" path="res://graphics/ground/stones.png" id="2_3vn1q"]
 [ext_resource type="Script" path="res://scenes/levels/outside.gd" id="2_hp7c5"]
 [ext_resource type="PackedScene" uid="uid://cyjvaanm7ycw3" path="res://scenes/objects/gate.tscn" id="2_onchf"]
 [ext_resource type="PackedScene" uid="uid://diqqj5gvbij76" path="res://scenes/objects/house.tscn" id="2_q53nf"]
-[ext_resource type="PackedScene" uid="uid://r8x0p6wgplvo" path="res://scenes/levels/inside.tscn" id="3_56u7s"]
 [ext_resource type="Texture2D" uid="uid://bthyybim15ojm" path="res://graphics/decals/dirt_patch.png" id="3_ad6ww"]
 [ext_resource type="Texture2D" uid="uid://2so6ejs8upft" path="res://graphics/decals/moss/moss_2.png" id="4_qrd5d"]
 [ext_resource type="Texture2D" uid="uid://dtb7b6atx8nwj" path="res://graphics/decals/moss/moss_1.png" id="5_dpd3d"]
@@ -15,7 +14,6 @@
 
 [node name="Outside" instance=ExtResource("1_33hl0")]
 script = ExtResource("2_hp7c5")
-inside_level_scene = ExtResource("3_56u7s")
 
 [node name="Ground" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
