@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jsixdp2jsv6p"]
+[gd_scene load_steps=13 format=3 uid="uid://jsixdp2jsv6p"]
 
 [ext_resource type="PackedScene" uid="uid://3vt4g4kuufp5" path="res://scenes/levels/level.tscn" id="1_33hl0"]
 [ext_resource type="Texture2D" uid="uid://d2pwxo0votfq8" path="res://graphics/ground/stones.png" id="2_3vn1q"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://i0kqsuaxmtu7" path="res://graphics/decals/moss/moss_3.png" id="6_dnp8r"]
 [ext_resource type="Texture2D" uid="uid://c175gsdbudrvf" path="res://graphics/decals/moss/moss_4.png" id="7_0tqgq"]
 [ext_resource type="Texture2D" uid="uid://8hf0fou7h7bc" path="res://graphics/decals/moss/moss_5.png" id="8_kf1uj"]
+[ext_resource type="PackedScene" uid="uid://dpgq3cr4fv23" path="res://scenes/user interface/ui.tscn" id="12_iv5ve"]
 
 [node name="Outside" instance=ExtResource("1_33hl0")]
 script = ExtResource("2_hp7c5")
@@ -100,6 +101,8 @@ rotation = -1.57079
 
 [node name="Gate" parent="." index="5" instance=ExtResource("2_onchf")]
 position = Vector2(291, -536)
+
+[node name="UI" parent="." index="6" instance=ExtResource("12_iv5ve")]
 
 [connection signal="player_entered" from="House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="House" to="." method="_on_house_player_exited"]
