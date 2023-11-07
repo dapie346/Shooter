@@ -23,14 +23,16 @@ func _process(_delta):
 	var pos = particle_start_position.global_position
 	
 	#shooting input
-	if Input.is_action_pressed("primary_action") and can_laser:
+	if Input.is_action_pressed("primary_action") and can_laser and Globals.laser_amount > 0:
+		Globals.laser_amount -= 1
 		can_laser = false
 		$LaserTimer.start()
 		$GunfireParticles.emitting = true
 		laser.emit(pos, pointing_direction)
 		
 	#grenade input
-	if Input.is_action_pressed("secondary_action") and can_grenade:
+	if Input.is_action_pressed("secondary_action") and can_grenade and Globals.grenade_amount > 0:
+		Globals.grenade_amount -= 1
 		can_grenade = false
 		$GrenadeTimer.start()
 		grenade.emit(pos, pointing_direction)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://r8x0p6wgplvo"]
+[gd_scene load_steps=17 format=3 uid="uid://r8x0p6wgplvo"]
 
 [ext_resource type="PackedScene" uid="uid://3vt4g4kuufp5" path="res://scenes/levels/level.tscn" id="1_4cexo"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_vq4pu"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://dewrhi8aqf30q" path="res://graphics/lights/overlays/hole.png" id="10_6el4w"]
 [ext_resource type="Texture2D" uid="uid://jtwk4n2siwmr" path="res://graphics/lights/overlays/infrastructure.png" id="11_k40r7"]
 [ext_resource type="Texture2D" uid="uid://dwc30hovqflo5" path="res://graphics/lights/overlays/lattice.png" id="12_1335m"]
-[ext_resource type="PackedScene" uid="uid://dpgq3cr4fv23" path="res://scenes/user interface/ui.tscn" id="16_px2bc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvkke"]
 size = Vector2(1478, 220)
@@ -234,7 +233,5 @@ shape = SubResource("RectangleShape2D_kvkke")
 color = Color(0.576471, 0.6, 0.447059, 1)
 blend_mode = 1
 metadata/_edit_lock_ = true
-
-[node name="UI" parent="." index="8" instance=ExtResource("16_px2bc")]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
