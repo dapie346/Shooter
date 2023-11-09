@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://jsixdp2jsv6p"]
+[gd_scene load_steps=14 format=3 uid="uid://jsixdp2jsv6p"]
 
 [ext_resource type="PackedScene" uid="uid://3vt4g4kuufp5" path="res://scenes/levels/level.tscn" id="1_33hl0"]
 [ext_resource type="Texture2D" uid="uid://d2pwxo0votfq8" path="res://graphics/ground/stones.png" id="2_3vn1q"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://i0kqsuaxmtu7" path="res://graphics/decals/moss/moss_3.png" id="6_dnp8r"]
 [ext_resource type="Texture2D" uid="uid://c175gsdbudrvf" path="res://graphics/decals/moss/moss_4.png" id="7_0tqgq"]
 [ext_resource type="Texture2D" uid="uid://8hf0fou7h7bc" path="res://graphics/decals/moss/moss_5.png" id="8_kf1uj"]
+[ext_resource type="PackedScene" uid="uid://b2t0whjogxxb3" path="res://scenes/objects/light_fan_animation.tscn" id="11_6tldn"]
+[ext_resource type="PackedScene" uid="uid://0fem8nxwfhv3" path="res://scenes/items/item.tscn" id="13_f1ct8"]
 
 [node name="Outside" instance=ExtResource("1_33hl0")]
 script = ExtResource("2_hp7c5")
@@ -94,11 +96,47 @@ position = Vector2(2584, 2829)
 rotation = -0.785397
 texture = ExtResource("7_0tqgq")
 
-[node name="House" parent="." index="2" instance=ExtResource("2_q53nf")]
+[node name="Item" parent="." index="2" instance=ExtResource("13_f1ct8")]
+position = Vector2(672, 891)
+
+[node name="Item4" parent="." index="3" instance=ExtResource("13_f1ct8")]
+position = Vector2(83, 978)
+
+[node name="Item2" parent="." index="4" instance=ExtResource("13_f1ct8")]
+position = Vector2(1053, 1265)
+
+[node name="Item3" parent="." index="5" instance=ExtResource("13_f1ct8")]
+position = Vector2(1317, 578)
+
+[node name="House" parent="." index="6" instance=ExtResource("2_q53nf")]
 position = Vector2(-1065, 2565)
 rotation = -1.57079
 
-[node name="Gate" parent="." index="5" instance=ExtResource("2_onchf")]
+[node name="Camera2D" parent="Player" index="7"]
+limit_left = -3200
+limit_top = -1150
+limit_right = 5640
+limit_bottom = 4220
+limit_smoothed = true
+
+[node name="LightClutter" type="Node2D" parent="." index="9"]
+position = Vector2(312, 515)
+
+[node name="Fans" type="Node2D" parent="LightClutter" index="0"]
+
+[node name="LightFanAnimation" parent="LightClutter/Fans" index="0" instance=ExtResource("11_6tldn")]
+position = Vector2(-1906, 1078)
+autoplay = "default"
+
+[node name="LightFanAnimation2" parent="LightClutter/Fans" index="1" instance=ExtResource("11_6tldn")]
+position = Vector2(-1938, 2643)
+autoplay = "default"
+
+[node name="LightFanAnimation3" parent="LightClutter/Fans" index="2" instance=ExtResource("11_6tldn")]
+position = Vector2(-1, 2637)
+autoplay = "default"
+
+[node name="Gate" parent="." index="10" instance=ExtResource("2_onchf")]
 position = Vector2(291, -536)
 
 [connection signal="player_entered" from="House" to="." method="_on_house_player_entered"]
