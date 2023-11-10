@@ -9,7 +9,7 @@ height = 90.0
 
 [node name="Laser" type="Area2D"]
 collision_layer = 8
-collision_mask = 43
+collision_mask = 107
 script = ExtResource("1_uc4ey")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
