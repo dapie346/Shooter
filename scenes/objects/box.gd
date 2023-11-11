@@ -1,4 +1,4 @@
 extends ContainerParent
 
-func hit():
-	print('box')
+func _ready():
+	items_spawned = 2

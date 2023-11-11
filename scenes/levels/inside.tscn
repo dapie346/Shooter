@@ -56,14 +56,17 @@ layer_2/tile_data = PackedInt32Array(458757, 327682, 2, 458756, 262146, 0, 45875
 [node name="Crate" parent="Objects/Crates" index="0" instance=ExtResource("4_h5m7b")]
 position = Vector2(1087, 2625)
 rotation = 4.71239
+collision_layer = 64
 
 [node name="Crate2" parent="Objects/Crates" index="1" instance=ExtResource("4_h5m7b")]
 position = Vector2(1084, 1993)
 rotation = 4.71239
+collision_layer = 64
 
 [node name="Box" parent="Objects/Crates" index="2" instance=ExtResource("5_ywqmx")]
 position = Vector2(33, 36)
 rotation = 3.14159
+collision_layer = 64
 
 [node name="Clutter" type="Node2D" parent="Objects" index="1"]
 
@@ -79,14 +82,17 @@ metadata/_edit_lock_ = true
 [node name="Toilet" parent="Objects/Toilets" index="0" instance=ExtResource("6_51v1h")]
 position = Vector2(-1106, 1948)
 rotation = 1.5708
+collision_layer = 64
 
 [node name="Toilet2" parent="Objects/Toilets" index="1" instance=ExtResource("6_51v1h")]
 position = Vector2(-1108, 2341)
 rotation = 1.5708
+collision_layer = 64
 
 [node name="Toilet3" parent="Objects/Toilets" index="2" instance=ExtResource("6_51v1h")]
 position = Vector2(-1114, 2728)
 rotation = 1.5708
+collision_layer = 64
 
 [node name="Beds" type="Node2D" parent="Objects" index="3"]
 
@@ -110,7 +116,19 @@ rotation = 1.5708
 position = Vector2(-1078, 1400)
 rotation = 1.5708
 
-[node name="Lights" type="Node2D" parent="." index="2"]
+[node name="Player" parent="." index="4"]
+position = Vector2(2, 2518)
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" parent="Player" index="7"]
+zoom = Vector2(0.8, 0.8)
+
+[node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
+energy = 2.0
+texture = ExtResource("7_d2uqa")
+texture_scale = 1.5
+
+[node name="Lights" type="Node2D" parent="." index="5"]
 
 [node name="Simple" type="Node2D" parent="Lights" index="0"]
 
@@ -132,19 +150,7 @@ rotation = 1.5708
 position = Vector2(3965, 786)
 rotation = 4.71239
 
-[node name="Player" parent="." index="4"]
-position = Vector2(2, 2518)
-metadata/_edit_lock_ = true
-
-[node name="Camera2D" parent="Player" index="7"]
-zoom = Vector2(0.8, 0.8)
-
-[node name="PointLight2D" type="PointLight2D" parent="Player" index="8"]
-energy = 2.0
-texture = ExtResource("7_d2uqa")
-texture_scale = 1.5
-
-[node name="LightClutter" type="Node2D" parent="." index="5"]
+[node name="LightClutter" type="Node2D" parent="." index="6"]
 
 [node name="Fans" type="Node2D" parent="LightClutter" index="0"]
 
@@ -224,17 +230,17 @@ rotation = 3.14159
 scale = Vector2(3.10892, 1.61976)
 texture = ExtResource("12_1335m")
 
-[node name="Area2D" type="Area2D" parent="." index="6"]
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="7"]
+color = Color(0.576471, 0.6, 0.447059, 1)
+blend_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="Area2D" type="Area2D" parent="." index="8"]
 position = Vector2(-296, 1934)
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 position = Vector2(296, 1012)
 shape = SubResource("RectangleShape2D_kvkke")
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." index="7"]
-color = Color(0.576471, 0.6, 0.447059, 1)
-blend_mode = 1
-metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
