@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://clk837rdljv0c"]
+
+[ext_resource type="Texture2D" uid="uid://dkwpyylx22st3" path="res://graphics/objects/infestation/line.png" id="1_6qxsx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6g10s"]
+size = Vector2(32, 356)
+
+[node name="Line" type="StaticBody2D"]
+collision_layer = 68
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6g10s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6qxsx")

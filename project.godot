@@ -74,6 +74,7 @@ secondary_action={
 2d_physics/layer_4="Projectiles"
 2d_physics/layer_5="Items & Zones"
 2d_physics/layer_6="Buildings"
+2d_physics/layer_7="Containers & Infestation"
 
 [rendering]
 

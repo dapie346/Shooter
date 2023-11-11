@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://diqqj5gvbij76"]
+[gd_scene load_steps=43 format=3 uid="uid://diqqj5gvbij76"]
 
 [ext_resource type="Texture2D" uid="uid://rj8wpalgb42" path="res://graphics/tilesets/soil.png" id="1_ohq50"]
 [ext_resource type="Script" path="res://scenes/objects/house.gd" id="1_ycvgv"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://d37ac1f1rhq2u" path="res://graphics/tilesets/interior.png" id="3_5e01a"]
 [ext_resource type="Texture2D" uid="uid://ptxfkj2j2gvj" path="res://graphics/tilesets/ceiling.png" id="4_rypvk"]
 [ext_resource type="PackedScene" uid="uid://bhqle3icu7jdy" path="res://scenes/objects/bed.tscn" id="5_ors2d"]
-[ext_resource type="PackedScene" uid="uid://bfmhi88rmdvjq" path="res://scenes/objects/box.tscn" id="6_7jtdr"]
 [ext_resource type="PackedScene" uid="uid://c46te8ly6nw4o" path="res://scenes/objects/wall_lamp.tscn" id="7_3nhfr"]
 [ext_resource type="PackedScene" uid="uid://daneomv5obggh" path="res://scenes/objects/simple_light.tscn" id="8_rysfs"]
 
@@ -697,10 +696,6 @@ position = Vector2(823, -1094)
 
 [node name="Bed2" parent="Objects" instance=ExtResource("5_ors2d")]
 position = Vector2(841, -61)
-
-[node name="Box" parent="Objects" instance=ExtResource("6_7jtdr")]
-position = Vector2(-1112, -999)
-rotation = 4.71239
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

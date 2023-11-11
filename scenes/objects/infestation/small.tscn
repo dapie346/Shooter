@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dopqy7qm0puwh"]
+
+[ext_resource type="Texture2D" uid="uid://bbyxy7ljns4e4" path="res://graphics/objects/infestation/small.png" id="1_civgv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bnrs0"]
+radius = 16.0
+height = 100.0
+
+[node name="Small" type="StaticBody2D"]
+collision_layer = 68
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_bnrs0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_civgv")
