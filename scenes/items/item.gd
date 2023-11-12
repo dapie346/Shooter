@@ -54,7 +54,7 @@ func _on_body_entered(_body):
 	
 func move_towards_target(delta):
 	if target_body:
-		var direction = (target_body.global_position - global_position).normalized()
+		direction = (target_body.global_position - global_position).normalized()
 		global_position += direction * speed * delta
 
 
