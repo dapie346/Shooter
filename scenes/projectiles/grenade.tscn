@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://jy0k7gocogk1"]
+[gd_scene load_steps=12 format=3 uid="uid://jy0k7gocogk1"]
 
 [ext_resource type="Texture2D" uid="uid://c4c3xvc6y5cyk" path="res://graphics/projectiles/grenade.png" id="1_4tysj"]
 [ext_resource type="Script" path="res://scenes/projectiles/grenade.gd" id="1_ax3jn"]
@@ -142,6 +142,9 @@ _data = {
 "RESET": SubResource("Animation_gr8wd")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_4lhrs"]
+radius = 166.676
+
 [node name="Grenade" type="RigidBody2D"]
 collision_layer = 8
 collision_mask = 111
@@ -175,3 +178,13 @@ autoplay = "Blinking"
 libraries = {
 "": SubResource("AnimationLibrary_ng1x8")
 }
+
+[node name="ExplosionRange" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 67
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionRange"]
+shape = SubResource("CircleShape2D_4lhrs")
+
+[connection signal="body_entered" from="ExplosionRange" to="." method="_on_explosion_range_body_entered"]
+[connection signal="body_exited" from="ExplosionRange" to="." method="_on_explosion_range_body_exited"]
