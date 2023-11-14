@@ -30,6 +30,7 @@ func update_grenade_text():
 
 func update_health_text():
 	health_bar.value = Globals.health
+	health_bar.max_value = Globals.max_health
 
 func update_color(amount: int, label: Label, icon: TextureRect) -> void:
 	if amount > 0:

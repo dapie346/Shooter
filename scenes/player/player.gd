@@ -46,5 +46,7 @@ func _on_laser_timer_timeout():
 func _on_grenade_timer_timeout():
 	can_grenade = true
 	
-func hit():
-	print("player hit")
+func hit(damage: int):
+	Globals.health -= damage
+	if Globals.health <= 0:
+		queue_free()

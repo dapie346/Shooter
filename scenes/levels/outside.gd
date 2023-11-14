@@ -1,6 +1,5 @@
 extends LevelParent
 
-#@export var inside_level_scene: PackedScene
 
 func _on_house_player_entered():
 	var tween = create_tween()

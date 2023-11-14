@@ -6,7 +6,7 @@ signal open()
 @export var items_spawned: int
 @onready var current_direction: Vector2 = Vector2.DOWN.rotated(rotation)
 
-func hit():
+func hit(_damage: int):
 	$LidSprite.hide()
 	collision_layer &= ~(1 << 6)
 	collision_mask &= ~(1 << 3)

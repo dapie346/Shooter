@@ -2,11 +2,13 @@ extends CharacterBody2D
 
 signal laser(pos, direction)
 
+@export var health: int = 50
 var player_nearby: bool = false
 var can_laser: bool = true
 var right_gun_use: bool = true
+var vulnerable: bool = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(_delta):
 	if player_nearby:
 		look_at(Globals.player_pos)
@@ -17,7 +19,16 @@ func _process(_delta):
 			var direction: Vector2 = (Globals.player_pos - position).normalized()
 			laser.emit(pos, direction)
 			can_laser = false
-			$LaserCooldown.start()
+			$Timers/LaserTimer.start()
+
+
+func hit(damage: int) -> void:
+	if vulnerable:
+		vulnerable = false
+		$Timers/HitTimer.start()
+		health -= damage
+		if health <= 0:
+			queue_free()
 
 
 func _on_attack_area_body_entered(_body):
@@ -28,9 +39,9 @@ func _on_attack_area_body_exited(_body):
 	player_nearby = false
 
 
-func _on_laser_cooldown_timeout():
+func _on_laser_timer_timeout():
 	can_laser = true
-	
 
-func hit():
-	print("scout hit")
+
+func _on_hit_timer_timeout():
+	vulnerable = true
