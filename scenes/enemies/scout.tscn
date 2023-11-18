@@ -1,55 +1,51 @@
-[gd_scene load_steps=7 format=3 uid="uid://h4iuorvyvsbu"]
+[gd_scene load_steps=8 format=3 uid="uid://c5kbmsam7kg1b"]
 
 [ext_resource type="Script" path="res://scenes/enemies/scout.gd" id="1_4qo05"]
 [ext_resource type="Texture2D" uid="uid://8as2hw84ofap" path="res://graphics/enemies/scout.png" id="1_8jonv"]
-[ext_resource type="Shader" path="res://scenes/enemies/scout.gdshader" id="2_4tfb4"]
+[ext_resource type="PackedScene" uid="uid://br52yi584ysq3" path="res://scenes/enemies/enemy.tscn" id="1_tvpns"]
+[ext_resource type="Shader" path="res://scenes/shaders/character_hit.gdshader" id="2_mooi3"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bhxi2"]
-shader = ExtResource("2_4tfb4")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6o8e"]
+shader = ExtResource("2_mooi3")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tsrm8"]
-radius = 41.0
+radius = 61.1882
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yiitp"]
-radius = 841.072
+[sub_resource type="CircleShape2D" id="CircleShape2D_8p4h7"]
+radius = 746.73
 
-[node name="Scout" type="CharacterBody2D" groups=["Entities", "Scouts"]]
+[node name="Scout" groups=["Scouts"] instance=ExtResource("1_tvpns")]
 collision_layer = 2
-collision_mask = 9
+collision_mask = 111
 script = ExtResource("1_4qo05")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_bhxi2")
-position = Vector2(31, 23)
+[node name="EnemySprite" type="Sprite2D" parent="." index="0"]
+material = SubResource("ShaderMaterial_a6o8e")
+position = Vector2(35, 20)
 rotation = 1.5708
 texture = ExtResource("1_8jonv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-18, 2)
+[node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CircleShape2D_tsrm8")
 
-[node name="AttackArea" type="Area2D" parent="."]
-collision_layer = 16
+[node name="CollisionShape2D" parent="NoticeArea" index="0"]
+shape = SubResource("CircleShape2D_8p4h7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-shape = SubResource("CircleShape2D_yiitp")
+[node name="LaserTimer" type="Timer" parent="Timers" index="0"]
 
-[node name="LaserSpawnPositions" type="Node2D" parent="."]
+[node name="HitTimer" parent="Timers" index="1"]
+wait_time = 0.2
 
-[node name="LaserLeft" type="Marker2D" parent="LaserSpawnPositions"]
+[node name="LaserSpawnPositions" type="Node2D" parent="." index="4"]
+
+[node name="LaserLeft" type="Marker2D" parent="LaserSpawnPositions" index="0"]
 position = Vector2(119, -31)
 
-[node name="LaserRight" type="Marker2D" parent="LaserSpawnPositions"]
+[node name="LaserRight" type="Marker2D" parent="LaserSpawnPositions" index="1"]
 position = Vector2(130, 7)
 
-[node name="Timers" type="Node" parent="."]
-
-[node name="LaserTimer" type="Timer" parent="Timers"]
-
-[node name="HitTimer" type="Timer" parent="Timers"]
-wait_time = 0.5
-
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]
+[connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
+[connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
 [connection signal="timeout" from="Timers/LaserTimer" to="." method="_on_laser_timer_timeout"]
-[connection signal="timeout" from="Timers/HitTimer" to="." method="_on_hit_timer_timeout"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://br52yi584ysq3"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_38c88"]
+
+[node name="Enemy" type="CharacterBody2D" groups=["Entities"]]
+script = ExtResource("1_38c88")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="NoticeArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 111
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="HitTimer" type="Timer" parent="Timers"]
+wait_time = 0.3
+
+[connection signal="timeout" from="Timers/HitTimer" to="." method="_on_hit_timer_timeout"]

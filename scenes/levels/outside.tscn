@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jsixdp2jsv6p"]
+[gd_scene load_steps=16 format=3 uid="uid://jsixdp2jsv6p"]
 
 [ext_resource type="PackedScene" uid="uid://3vt4g4kuufp5" path="res://scenes/levels/level.tscn" id="1_33hl0"]
 [ext_resource type="Texture2D" uid="uid://d2pwxo0votfq8" path="res://graphics/ground/stones.png" id="2_3vn1q"]
@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://8hf0fou7h7bc" path="res://graphics/decals/moss/moss_5.png" id="8_kf1uj"]
 [ext_resource type="PackedScene" uid="uid://b2t0whjogxxb3" path="res://scenes/objects/light_fan_animation.tscn" id="11_6tldn"]
 [ext_resource type="PackedScene" uid="uid://bfmhi88rmdvjq" path="res://scenes/objects/box.tscn" id="12_6trac"]
-[ext_resource type="PackedScene" uid="uid://h4iuorvyvsbu" path="res://scenes/enemies/scout.tscn" id="12_56dx0"]
+[ext_resource type="PackedScene" uid="uid://c5kbmsam7kg1b" path="res://scenes/enemies/scout.tscn" id="12_56dx0"]
+[ext_resource type="PackedScene" uid="uid://bgp60s7eqxgtq" path="res://scenes/enemies/bug.tscn" id="15_q4yc5"]
 
 [node name="Outside" instance=ExtResource("1_33hl0")]
 script = ExtResource("2_hp7c5")
@@ -123,12 +124,15 @@ z_index = 6
 [node name="Enemies" type="Node2D" parent="." index="6"]
 z_index = 7
 
-[node name="Scout" parent="Enemies" index="0" instance=ExtResource("12_56dx0")]
-z_index = 7
-position = Vector2(630, 881)
+[node name="Bug" parent="Enemies" index="0" instance=ExtResource("15_q4yc5")]
+position = Vector2(2320, 1240)
+
+[node name="Scout" parent="Enemies" index="1" instance=ExtResource("12_56dx0")]
+position = Vector2(647, 752)
 
 [node name="Player" parent="." index="7"]
 z_index = 7
+collision_mask = 55
 
 [node name="Camera2D" parent="Player" index="7"]
 limit_left = -3200
