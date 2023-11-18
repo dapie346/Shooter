@@ -1,15 +1,45 @@
-[gd_scene load_steps=2 format=3 uid="uid://br52yi584ysq3"]
+[gd_scene load_steps=7 format=3 uid="uid://br52yi584ysq3"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_38c88"]
+[ext_resource type="Texture2D" uid="uid://f7sl85rntytj" path="res://graphics/explosions/grunge.png" id="2_s8ptt"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hmm1m"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_ne7c5"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0105263), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hh53c"]
+curve = SubResource("Curve_ne7c5")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5iiuw"]
+emission_shape = 1
+emission_sphere_radius = 3.5
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 120.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.2
+scale_max = 0.3
+scale_curve = SubResource("CurveTexture_hh53c")
+anim_offset_max = 1.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["Entities"]]
+collision_mask = 111
 script = ExtResource("1_38c88")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 
 [node name="NoticeArea" type="Area2D" parent="."]
 collision_layer = 2
-collision_mask = 111
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NoticeArea"]
 
@@ -17,5 +47,17 @@ collision_mask = 111
 
 [node name="HitTimer" type="Timer" parent="Timers"]
 wait_time = 0.3
+
+[node name="Particles" type="Node2D" parent="."]
+
+[node name="HitParticles" type="GPUParticles2D" parent="Particles"]
+modulate = Color(0.2, 0.360784, 0.231373, 1)
+material = SubResource("CanvasItemMaterial_hmm1m")
+emitting = false
+amount = 40
+process_material = SubResource("ParticleProcessMaterial_5iiuw")
+texture = ExtResource("2_s8ptt")
+lifetime = 0.5
+one_shot = true
 
 [connection signal="timeout" from="Timers/HitTimer" to="." method="_on_hit_timer_timeout"]

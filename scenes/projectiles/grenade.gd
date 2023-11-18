@@ -12,8 +12,13 @@ func _process(_delta):
 			var in_range = target.global_position.distance_to(global_position) < explosion_radius
 			if target.has_method("hit") and in_range:
 				target.hit(damage)
-		explosion_active = false
+
 
 func explode():
 	$AnimationPlayer.play("Explosion")
+	$ExplosionTimer.start()
 	explosion_active = true
+
+
+func _on_explosion_timer_timeout():
+	explosion_active = false

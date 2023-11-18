@@ -10,9 +10,11 @@ func hit(damage: int) -> void:
 	if vulnerable:
 		vulnerable = false
 		$Timers/HitTimer.start()
+		$Particles/HitParticles.emitting = true
 		$EnemySprite.material.set_shader_parameter("progress", 0.8)
 		health -= damage
 		if health <= 0:
+			await get_tree().create_timer(0.5).timeout
 			queue_free()
 
 

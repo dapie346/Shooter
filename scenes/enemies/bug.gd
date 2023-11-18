@@ -38,7 +38,6 @@ func _on_enemy_sprite_animation_finished():
 func _on_notice_area_body_entered(_body):
 	player_nearby = true
 	$EnemySprite.play("walk")
-	
 
 
 func _on_notice_area_body_exited(_body):
