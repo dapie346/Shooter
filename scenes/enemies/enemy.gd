@@ -14,9 +14,11 @@ func hit(damage: int) -> void:
 		$EnemySprite.material.set_shader_parameter("progress", 0.8)
 		health -= damage
 		if health <= 0:
-			await get_tree().create_timer(0.5).timeout
-			queue_free()
+			death()
 
+func death():
+	await get_tree().create_timer(0.5).timeout
+	queue_free()
 
 func _on_hit_timer_timeout():
 	vulnerable = true

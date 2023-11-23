@@ -24,9 +24,11 @@ func _on_laser_timer_timeout():
 	can_laser = true
 
 
-func _on_notice_area_body_entered(_body):
-	player_nearby = true
+func _on_notice_area_body_entered(body):
+	if body.is_in_group('Player'):
+		player_nearby = true
 
 
-func _on_notice_area_body_exited(_body):
-	player_nearby = false
+func _on_notice_area_body_exited(body):
+	if body.is_in_group('Player'):
+		player_nearby = false

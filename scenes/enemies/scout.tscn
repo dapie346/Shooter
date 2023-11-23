@@ -17,7 +17,6 @@ radius = 61.1882
 radius = 746.73
 
 [node name="Scout" groups=["Scouts"] instance=ExtResource("1_tvpns")]
-collision_layer = 2
 script = ExtResource("1_4qo05")
 
 [node name="EnemySprite" type="Sprite2D" parent="." index="0"]
@@ -44,6 +43,9 @@ position = Vector2(119, -31)
 
 [node name="LaserRight" type="Marker2D" parent="LaserSpawnPositions" index="1"]
 position = Vector2(130, 7)
+
+[node name="HitParticles" parent="Particles" index="0"]
+modulate = Color(0.686275, 0.564706, 0.227451, 1)
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]

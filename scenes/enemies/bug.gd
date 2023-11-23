@@ -19,14 +19,16 @@ func _process(_delta):
 			move_and_slide()
 
 
-func _on_attack_area_body_entered(_body):
-	target = _body
-	in_range = true
-	$EnemySprite.play("attack")
+func _on_attack_area_body_entered(body):
+	if body.is_in_group('Player'):
+		target = body
+		in_range = true
+		$EnemySprite.play("attack")
 
 
-func _on_attack_area_body_exited(_body):
-	in_range = false
+func _on_attack_area_body_exited(body):
+	if body.is_in_group('Player'):
+		in_range = false
 
 
 func _on_enemy_sprite_animation_finished():
@@ -35,13 +37,15 @@ func _on_enemy_sprite_animation_finished():
 		$Timers/AttackTimer.start()
 
 
-func _on_notice_area_body_entered(_body):
-	player_nearby = true
-	$EnemySprite.play("walk")
+func _on_notice_area_body_entered(body):
+	if body.is_in_group('Player'):
+		player_nearby = true
+		$EnemySprite.play("walk")
 
 
-func _on_notice_area_body_exited(_body):
-	player_nearby = false
+func _on_notice_area_body_exited(body):
+	if body.is_in_group('Player'):
+		player_nearby = false
 
 
 func _on_attack_timer_timeout():
