@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://jsixdp2jsv6p"]
+[gd_scene load_steps=20 format=3 uid="uid://jsixdp2jsv6p"]
 
 [ext_resource type="PackedScene" uid="uid://3vt4g4kuufp5" path="res://scenes/levels/level.tscn" id="1_33hl0"]
 [ext_resource type="Texture2D" uid="uid://d2pwxo0votfq8" path="res://graphics/ground/stones.png" id="2_3vn1q"]
@@ -20,6 +20,18 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 2587, 690, -124.591, -94.3874, 124.591, 94.3874, 3136, 984, -379.095, 74.751, 379.095, -74.751, 4302, 1575, 11.3265, -181.224, -11.3265, 181.224, 4739, 2170, 324.693, -222.754, -324.693, 222.754, 4401, 2845, 453.06, 283.162, -453.06, -283.162, 2052, 2712, 237.856, 154.795, -237.856, -154.795, 1060, 1594, 336.019, 249.183, -336.019, -249.183, -58, 1509, -147.244, 192.55, 147.244, -192.55, -9, 871, -298.264, -22.653, 298.264, 22.653, 2076, 544, 0, 0, 0, 0, 2587, 690)
 }
 point_count = 11
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oohv"]
+size = Vector2(2, 5372)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yk0uc"]
+size = Vector2(2, 5372)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fpfi"]
+size = Vector2(8842, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lacfs"]
+size = Vector2(8842, 2)
 
 [node name="Outside" instance=ExtResource("1_33hl0")]
 script = ExtResource("2_hp7c5")
@@ -168,6 +180,37 @@ autoplay = "default"
 [node name="Gate" parent="." index="9" instance=ExtResource("2_onchf")]
 z_index = 9
 position = Vector2(291, -536)
+
+[node name="LevelBarriers" type="Node2D" parent="." index="11"]
+z_index = 5
+
+[node name="StaticBody2D" type="StaticBody2D" parent="LevelBarriers" index="0"]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBarriers/StaticBody2D" index="0"]
+position = Vector2(-3200, 1535)
+shape = SubResource("RectangleShape2D_8oohv")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="LevelBarriers" index="1"]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBarriers/StaticBody2D2" index="0"]
+position = Vector2(5640, 1535)
+shape = SubResource("RectangleShape2D_yk0uc")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="LevelBarriers" index="2"]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBarriers/StaticBody2D3" index="0"]
+position = Vector2(1220, 4220)
+shape = SubResource("RectangleShape2D_6fpfi")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="LevelBarriers" index="3"]
+collision_layer = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelBarriers/StaticBody2D4" index="0"]
+position = Vector2(1220, -1150)
+shape = SubResource("RectangleShape2D_lacfs")
 
 [connection signal="player_entered" from="House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="House" to="." method="_on_house_player_exited"]
