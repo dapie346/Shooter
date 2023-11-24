@@ -11,7 +11,7 @@ func hit(damage: int) -> void:
 		vulnerable = false
 		$Timers/HitTimer.start()
 		$Particles/HitParticles.emitting = true
-		$EnemySprite.material.set_shader_parameter("progress", 0.8)
+		hit_shader_on()
 		health -= damage
 		if health <= 0:
 			death()
@@ -22,4 +22,10 @@ func death():
 
 func _on_hit_timer_timeout():
 	vulnerable = true
+	hit_shader_off()
+	
+func hit_shader_on():
+	$EnemySprite.material.set_shader_parameter("progress", 0.8)
+	
+func hit_shader_off():
 	$EnemySprite.material.set_shader_parameter("progress", 0)

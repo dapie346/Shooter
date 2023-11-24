@@ -14,7 +14,7 @@ shader_parameter/progress = 0.0
 radius = 61.1882
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8p4h7"]
-radius = 746.73
+radius = 1095.0
 
 [node name="Scout" groups=["Scouts"] instance=ExtResource("1_tvpns")]
 script = ExtResource("1_4qo05")

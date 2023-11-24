@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://2mk7knxrnrl2"]
+
+[ext_resource type="Script" path="res://scenes/enemies/car_path.gd" id="1_yk4ye"]
+[ext_resource type="PackedScene" uid="uid://mjrdib58yfp1" path="res://scenes/enemies/car.tscn" id="2_e5p7r"]
+
+[node name="CarPath" type="PathFollow2D"]
+script = ExtResource("1_yk4ye")
+
+[node name="Car" parent="." instance=ExtResource("2_e5p7r")]
