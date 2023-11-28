@@ -1,7 +1,7 @@
 extends Enemy
 
 var in_range: bool = false
-var speed = 300
+var speed = 350
 var damage = 10
 var target: CharacterBody2D
 

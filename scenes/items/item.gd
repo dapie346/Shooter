@@ -9,7 +9,7 @@ var distance: int = randi_range(min_distance, max_distance)
 var possible_types = {
 	'laser': 4,  # Higher weight means more common
 	'grenade': 1,
-	'health': 2
+	'health': 3
 }
 
 var type = weighted_random_choice(possible_types)
@@ -44,11 +44,11 @@ func _on_detection_area_body_entered(body):
 
 func _on_body_entered(_body):
 	if type == 'laser':
-		Globals.laser_amount += 5
+		Globals.laser_amount += 10
 	if type == 'grenade':
-		Globals.grenade_amount += 1
+		Globals.grenade_amount += 2
 	if type == 'health':
-		Globals.health += 10
+		Globals.health += 40
 	queue_free()
 
 	

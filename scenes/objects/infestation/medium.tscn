@@ -7,7 +7,7 @@ radius = 35.171
 
 [node name="Medium" type="StaticBody2D"]
 collision_layer = 68
-collision_mask = 9
+collision_mask = 11
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_qowre")

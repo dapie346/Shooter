@@ -5,11 +5,11 @@ signal stat_change
 var player_vulnerable: bool = true
 var player_pos: Vector2
 
-var laser_amount: int = 20:
+var laser_amount: int = 50:
 	set(value):
 		laser_amount = value
 		stat_change.emit()
-var grenade_amount: int = 5:
+var grenade_amount: int = 0:
 	set(value):
 		grenade_amount = value
 		stat_change.emit()
@@ -17,7 +17,7 @@ var max_health: int = 200:
 	set(value):
 		max_health = value
 		stat_change.emit()
-var health: int = 80:
+var health: int = 200:
 	set(value):
 		if value < health:
 			health = min(value, max_health)

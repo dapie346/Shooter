@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://br52yi584ysq3" path="res://scenes/enemies/enemy.tscn" id="1_hdca3"]
 [ext_resource type="Script" path="res://scenes/enemies/bug.gd" id="2_al53l"]
-[ext_resource type="Shader" path="res://scenes/shaders/character_hit.gdshader" id="3_6578s"]
 [ext_resource type="Texture2D" uid="uid://bbe01wbtsuwie" path="res://graphics/enemies/bug/attack/00010.png" id="4_4vv2b"]
 [ext_resource type="Texture2D" uid="uid://rjnnk7iupli6" path="res://graphics/enemies/bug/attack/00011.png" id="5_v612t"]
 [ext_resource type="Texture2D" uid="uid://cpgrebi5vwbo0" path="res://graphics/enemies/bug/attack/00012.png" id="6_jmi8c"]
@@ -34,8 +33,22 @@
 [ext_resource type="Texture2D" uid="uid://untt135av1wq" path="res://graphics/enemies/bug/walk/00007.png" id="32_l4l1d"]
 [ext_resource type="Texture2D" uid="uid://dq2xtxwmvmpvm" path="res://graphics/enemies/bug/walk/00008.png" id="33_hqw1l"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_i7hln"]
-shader = ExtResource("3_6578s")
+[sub_resource type="Shader" id="Shader_4word"]
+code = "shader_type canvas_item;
+
+uniform vec3 color: source_color = vec3(1);
+uniform float progress: hint_range(0.0, 1.0, 0.1) = 0;
+
+void fragment() {
+	float current_a = texture(TEXTURE, UV).a;
+	vec4 target_color = mix(texture(TEXTURE, UV), vec4(color, current_a), progress);
+	COLOR = target_color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2ceap"]
+resource_local_to_scene = true
+shader = SubResource("Shader_4word")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0
 
@@ -147,7 +160,7 @@ radius = 53.0
 height = 198.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pxsg8"]
-radius = 1868.22
+radius = 920.066
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_r32l4"]
 radius = 198.728
@@ -157,7 +170,7 @@ collision_mask = 239
 script = ExtResource("2_al53l")
 
 [node name="EnemySprite" type="AnimatedSprite2D" parent="." index="0"]
-material = SubResource("ShaderMaterial_i7hln")
+material = SubResource("ShaderMaterial_2ceap")
 rotation = 1.5708
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_xbucu")

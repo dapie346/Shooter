@@ -3,11 +3,24 @@
 [ext_resource type="PackedScene" uid="uid://br52yi584ysq3" path="res://scenes/enemies/enemy.tscn" id="1_dd3kc"]
 [ext_resource type="Script" path="res://scenes/enemies/drone.gd" id="1_pu1e7"]
 [ext_resource type="Texture2D" uid="uid://d3mt3lygbroed" path="res://graphics/enemies/drone.png" id="1_ymqw7"]
-[ext_resource type="Shader" path="res://scenes/shaders/character_hit.gdshader" id="3_1yd8k"]
 [ext_resource type="Texture2D" uid="uid://kj07kqtjhf1m" path="res://graphics/explosions/explosion_3.png" id="5_8utkg"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_lk2tc"]
-shader = ExtResource("3_1yd8k")
+[sub_resource type="Shader" id="Shader_rmnmx"]
+code = "shader_type canvas_item;
+
+uniform vec3 color: source_color = vec3(1);
+uniform float progress: hint_range(0.0, 1.0, 0.1) = 0;
+
+void fragment() {
+	float current_a = texture(TEXTURE, UV).a;
+	vec4 target_color = mix(texture(TEXTURE, UV), vec4(color, current_a), progress);
+	COLOR = target_color;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8u8dx"]
+resource_local_to_scene = true
+shader = SubResource("Shader_rmnmx")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0
 
@@ -15,7 +28,7 @@ shader_parameter/progress = 0.0
 radius = 69.7209
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sf0eo"]
-radius = 976.087
+radius = 1466.15
 
 [sub_resource type="Animation" id="Animation_xjkwj"]
 resource_name = "Explosion"
@@ -109,7 +122,7 @@ _data = {
 script = ExtResource("1_pu1e7")
 
 [node name="EnemySprite" type="Sprite2D" parent="." index="0"]
-material = SubResource("ShaderMaterial_lk2tc")
+material = SubResource("ShaderMaterial_8u8dx")
 rotation = 1.5708
 texture = ExtResource("1_ymqw7")
 

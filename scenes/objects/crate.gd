@@ -1,4 +1,4 @@
 extends ContainerParent
 
 func _ready():
-	items_spawned = 1
+	items_spawned = 5
