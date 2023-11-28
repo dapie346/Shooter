@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://jsixdp2jsv6p"]
+[gd_scene load_steps=38 format=3 uid="uid://jsixdp2jsv6p"]
 
 [ext_resource type="PackedScene" uid="uid://3vt4g4kuufp5" path="res://scenes/levels/level.tscn" id="1_33hl0"]
 [ext_resource type="Texture2D" uid="uid://d2pwxo0votfq8" path="res://graphics/ground/stones.png" id="2_3vn1q"]
@@ -26,8 +26,11 @@
 [ext_resource type="PackedScene" uid="uid://b3joey4dm03ma" path="res://scenes/objects/infestation/small_2.tscn" id="22_6ma3a"]
 [ext_resource type="PackedScene" uid="uid://clk837rdljv0c" path="res://scenes/objects/infestation/line.tscn" id="23_61y8w"]
 [ext_resource type="PackedScene" uid="uid://1l0g670ylr6n" path="res://scenes/objects/billboard.tscn" id="24_om0ke"]
+[ext_resource type="PackedScene" uid="uid://c5kbmsam7kg1b" path="res://scenes/enemies/scout.tscn" id="26_ohqb8"]
 [ext_resource type="PackedScene" uid="uid://cmtvhj4ksxs2o" path="res://scenes/enemies/hunter.tscn" id="28_filxm"]
 [ext_resource type="PackedScene" uid="uid://2mk7knxrnrl2" path="res://scenes/enemies/car_path.tscn" id="29_o3rxo"]
+[ext_resource type="PackedScene" uid="uid://bgp60s7eqxgtq" path="res://scenes/enemies/bug.tscn" id="30_jstka"]
+[ext_resource type="PackedScene" uid="uid://ci2n25t5ua1r6" path="res://scenes/enemies/drone.tscn" id="31_rktqr"]
 
 [sub_resource type="Curve2D" id="Curve2D_hkit4"]
 _data = {
@@ -491,13 +494,28 @@ position = Vector2(-126, 2370)
 [node name="Hunter2" parent="Enemies" index="2" instance=ExtResource("28_filxm")]
 position = Vector2(1510, 3196)
 
+[node name="Scout" parent="Enemies" index="3" instance=ExtResource("26_ohqb8")]
+position = Vector2(-2043, 2572)
+
+[node name="Scout2" parent="Enemies" index="4" instance=ExtResource("26_ohqb8")]
+position = Vector2(-1237, 2560)
+
+[node name="Bug" parent="Enemies" index="5" instance=ExtResource("30_jstka")]
+position = Vector2(-1618, 3121)
+
+[node name="Bug2" parent="Enemies" index="6" instance=ExtResource("30_jstka")]
+position = Vector2(-137, 2959)
+
+[node name="Drone" parent="Enemies" index="7" instance=ExtResource("31_rktqr")]
+position = Vector2(705, 1722)
+
 [node name="Player" parent="." index="7"]
 z_index = 7
 position = Vector2(-1910, 1662)
 rotation = 1.5708
 collision_mask = 55
 
-[node name="Camera2D" parent="Player" index="7"]
+[node name="Camera2D" parent="Player" index="8"]
 limit_left = -3200
 limit_top = -1150
 limit_right = 5640

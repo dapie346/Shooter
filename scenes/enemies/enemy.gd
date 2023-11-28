@@ -10,6 +10,7 @@ func hit(damage: int) -> void:
 	if vulnerable:
 		vulnerable = false
 		$Timers/HitTimer.start()
+		$HitSound.play()
 		$Particles/HitParticles.emitting = true
 		hit_shader_on()
 		health -= damage
@@ -17,6 +18,8 @@ func hit(damage: int) -> void:
 			death()
 
 func death():
+	$EnemySprite.visible = false
+	$Particles/HitParticles.scale = Vector2(5.0, 5.0)
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
 

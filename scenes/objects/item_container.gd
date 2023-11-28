@@ -10,6 +10,7 @@ signal open()
 func hit(_damage: int):
 	if closed:
 		closed = false
+		$HitSound.play()
 		$LidSprite.hide()
 		collision_layer &= ~(1 << 6)
 		collision_mask &= ~(1 << 3)

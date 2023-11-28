@@ -3,7 +3,6 @@ extends Enemy
 var speed: int = 200
 var target: CharacterBody2D
 var damage = 40
-var can_attack: bool = true
 @onready var body_part_sprites = [
 	$EnemySprite/Torso/Torso, $EnemySprite/Torso/FrontRightLeg/Sprite2D, 
 	$EnemySprite/Torso/FrontRightLeg/FrontRightClaw/Sprite2D, $EnemySprite/Torso/FrontLeftLeg/Sprite2D, 
@@ -14,6 +13,8 @@ var can_attack: bool = true
 ]
 
 func _ready():
+	$NavigationAgent2D.path_desired_distance = 4.0
+	$NavigationAgent2D.target_desired_distance = 4.0
 	$NavigationAgent2D.target_position = Globals.player_pos
 	health = 100
 
@@ -67,7 +68,3 @@ func hit_shader_on():
 func hit_shader_off():
 	for body_part in body_part_sprites:
 		body_part.material.set_shader_parameter("progress",0)
-
-
-func _on_attack_timer_timeout():
-	can_attack = true

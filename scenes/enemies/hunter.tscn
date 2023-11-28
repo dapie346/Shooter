@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://cmtvhj4ksxs2o"]
+[gd_scene load_steps=35 format=3 uid="uid://cmtvhj4ksxs2o"]
 
 [ext_resource type="PackedScene" uid="uid://br52yi584ysq3" path="res://scenes/enemies/enemy.tscn" id="1_og7hb"]
 [ext_resource type="Script" path="res://scenes/enemies/hunter.gd" id="2_d8q4c"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dck42s1plkl68" path="res://graphics/enemies/hunter/parts/claw.png" id="8_lh8wi"]
 [ext_resource type="Texture2D" uid="uid://3hjgsovig5ej" path="res://graphics/enemies/hunter/parts/leg_back_inner.png" id="9_dovr2"]
 [ext_resource type="Texture2D" uid="uid://jikulwyqhq1m" path="res://graphics/enemies/hunter/parts/leg_back_outer.png" id="10_ceua8"]
+[ext_resource type="AudioStream" uid="uid://cr4cwecj0crr7" path="res://audio/organic_impact.mp3" id="11_d6j7x"]
 
 [sub_resource type="SkeletonModification2DTwoBoneIK" id="SkeletonModification2DTwoBoneIK_hebs6"]
 resource_local_to_scene = true
@@ -127,17 +128,18 @@ shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/progress = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i2xq0"]
-radius = 97.0
+radius = 67.1863
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1phdg"]
 radius = 2792.93
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_svsv6"]
-radius = 260.248
+radius = 167.108
 
 [sub_resource type="Animation" id="Animation_58e4h"]
 resource_name = "attack"
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -255,7 +257,6 @@ position = Vector2(27, -28)
 rotation = -0.0535985
 scale = Vector2(0.99996, 0.99996)
 rest = Transform2D(0.861349, 0.507934, -0.507934, 0.861349, 27, -28)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySprite/Torso/FrontRightLeg" index="0"]
 material = SubResource("ShaderMaterial_8nq0x")
@@ -268,7 +269,6 @@ rest = Transform2D(0.557088, -0.830454, 0.830454, 0.557088, 49, -63)
 auto_calculate_length_and_angle = false
 length = 103.194
 bone_angle = -58.378
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySprite/Torso/FrontRightLeg/FrontRightClaw" index="0"]
 material = SubResource("ShaderMaterial_mfqs8")
@@ -278,7 +278,6 @@ texture = ExtResource("7_8345y")
 [node name="FrontLeftLeg" type="Bone2D" parent="EnemySprite/Torso" index="2"]
 position = Vector2(-27, -28)
 rest = Transform2D(0.841675, -0.539984, 0.539984, 0.841675, -27, -28)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySprite/Torso/FrontLeftLeg" index="0"]
 material = SubResource("ShaderMaterial_1mt5b")
@@ -292,7 +291,6 @@ rest = Transform2D(0.516069, 0.856547, -0.856547, 0.516069, -50, -62)
 auto_calculate_length_and_angle = false
 length = 99.026
 bone_angle = -125.217
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySprite/Torso/FrontLeftLeg/FrontLeftClaw" index="0"]
 material = SubResource("ShaderMaterial_o3nwe")
@@ -332,7 +330,6 @@ texture = ExtResource("8_lh8wi")
 [node name="BackRightLeg" type="Bone2D" parent="EnemySprite/Torso" index="4"]
 position = Vector2(31, 16)
 rest = Transform2D(0.734286, -0.678841, 0.678841, 0.734286, 31, 16)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySprite/Torso/BackRightLeg" index="0"]
 material = SubResource("ShaderMaterial_kebyr")
@@ -345,7 +342,6 @@ rest = Transform2D(0.464447, 0.885601, -0.885601, 0.464447, 36, 68)
 auto_calculate_length_and_angle = false
 length = 110.0
 bone_angle = 65.0
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySprite/Torso/BackRightLeg/BackRightClaw" index="0"]
 material = SubResource("ShaderMaterial_r3vgi")
@@ -355,7 +351,6 @@ texture = ExtResource("10_ceua8")
 [node name="BackLeftLeg" type="Bone2D" parent="EnemySprite/Torso" index="5"]
 position = Vector2(-30, 15)
 rest = Transform2D(0.749183, 0.662364, -0.662364, 0.749183, -30, 15)
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySprite/Torso/BackLeftLeg" index="0"]
 material = SubResource("ShaderMaterial_hioc8")
@@ -369,7 +364,6 @@ rest = Transform2D(0.498712, -0.866767, 0.866767, 0.498712, -37, 71)
 auto_calculate_length_and_angle = false
 length = 110.0
 bone_angle = 115.0
-metadata/_local_pose_override_enabled_ = true
 
 [node name="Sprite2D" type="Sprite2D" parent="EnemySprite/Torso/BackLeftLeg/BackLeftClaw" index="0"]
 material = SubResource("ShaderMaterial_d308e")
@@ -387,9 +381,8 @@ shape = SubResource("CircleShape2D_1phdg")
 wait_time = 0.2
 autostart = true
 
-[node name="AttackTimer" type="Timer" parent="Timers" index="2"]
-
 [node name="AttackArea" type="Area2D" parent="." index="5"]
+position = Vector2(0, -142)
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" index="0"]
@@ -417,9 +410,11 @@ libraries = {
 "": SubResource("AnimationLibrary_f84e3")
 }
 
+[node name="HitSound" parent="." index="9"]
+stream = ExtResource("11_d6j7x")
+
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
 [connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
 [connection signal="timeout" from="Timers/NavigationTimer" to="." method="_on_navigation_timer_timeout"]
-[connection signal="timeout" from="Timers/AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
 [connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

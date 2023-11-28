@@ -9,7 +9,7 @@ var laser_amount: int = 50:
 	set(value):
 		laser_amount = value
 		stat_change.emit()
-var grenade_amount: int = 0:
+var grenade_amount: int = 1:
 	set(value):
 		grenade_amount = value
 		stat_change.emit()

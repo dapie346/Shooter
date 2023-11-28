@@ -43,3 +43,12 @@ func hit_shader_off():
 func fire():
 	if target.has_method("hit"):
 		target.hit(damage)
+
+func death():
+	target = null
+	$Explosion.play()
+	$EnemySprite.visible = false
+	$Turret.visible = false
+	$Particles/HitParticles.scale = Vector2(5.0, 5.0)
+	await get_tree().create_timer(0.5).timeout
+	queue_free()

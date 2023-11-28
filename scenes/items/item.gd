@@ -49,6 +49,9 @@ func _on_body_entered(_body):
 		Globals.grenade_amount += 2
 	if type == 'health':
 		Globals.health += 40
+	$Sprite2D.visible = false
+	$ItemPickedSound.play()
+	await get_tree().create_timer(0.5).timeout
 	queue_free()
 
 	

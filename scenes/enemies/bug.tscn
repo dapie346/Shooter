@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bgp60s7eqxgtq"]
+[gd_scene load_steps=40 format=3 uid="uid://bgp60s7eqxgtq"]
 
 [ext_resource type="PackedScene" uid="uid://br52yi584ysq3" path="res://scenes/enemies/enemy.tscn" id="1_hdca3"]
 [ext_resource type="Script" path="res://scenes/enemies/bug.gd" id="2_al53l"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://djkak8r77vgx0" path="res://graphics/enemies/bug/walk/00005.png" id="30_5mtmb"]
 [ext_resource type="Texture2D" uid="uid://bcq17yblifjeb" path="res://graphics/enemies/bug/walk/00006.png" id="31_bm8qg"]
 [ext_resource type="Texture2D" uid="uid://untt135av1wq" path="res://graphics/enemies/bug/walk/00007.png" id="32_l4l1d"]
+[ext_resource type="AudioStream" uid="uid://cr4cwecj0crr7" path="res://audio/organic_impact.mp3" id="33_e84l7"]
 [ext_resource type="Texture2D" uid="uid://dq2xtxwmvmpvm" path="res://graphics/enemies/bug/walk/00008.png" id="33_hqw1l"]
 
 [sub_resource type="Shader" id="Shader_4word"]
@@ -194,6 +195,9 @@ shape = SubResource("CircleShape2D_r32l4")
 
 [node name="AttackTimer" type="Timer" parent="Timers" index="1"]
 wait_time = 0.6
+
+[node name="HitSound" parent="." index="6"]
+stream = ExtResource("33_e84l7")
 
 [connection signal="animation_finished" from="EnemySprite" to="." method="_on_enemy_sprite_animation_finished"]
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
