@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://diqqj5gvbij76"]
+[gd_scene load_steps=50 format=3 uid="uid://diqqj5gvbij76"]
 
 [ext_resource type="Texture2D" uid="uid://rj8wpalgb42" path="res://graphics/tilesets/soil.png" id="1_ohq50"]
 [ext_resource type="Script" path="res://scenes/objects/house.gd" id="1_ycvgv"]
@@ -6,8 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://d37ac1f1rhq2u" path="res://graphics/tilesets/interior.png" id="3_5e01a"]
 [ext_resource type="Texture2D" uid="uid://ptxfkj2j2gvj" path="res://graphics/tilesets/ceiling.png" id="4_rypvk"]
 [ext_resource type="PackedScene" uid="uid://bhqle3icu7jdy" path="res://scenes/objects/bed.tscn" id="5_ors2d"]
+[ext_resource type="Texture2D" uid="uid://dpij3oor0enyl" path="res://graphics/decals/brushes/brush050.png" id="6_5a5oj"]
 [ext_resource type="PackedScene" uid="uid://c46te8ly6nw4o" path="res://scenes/objects/wall_lamp.tscn" id="7_3nhfr"]
+[ext_resource type="Texture2D" uid="uid://3itsh0oe63bm" path="res://graphics/decals/brushes/brush053.png" id="7_5er4y"]
 [ext_resource type="PackedScene" uid="uid://daneomv5obggh" path="res://scenes/objects/simple_light.tscn" id="8_rysfs"]
+[ext_resource type="Texture2D" uid="uid://bn0lyo1h2ionv" path="res://graphics/decals/brushes/brush054.png" id="8_ya8v6"]
+[ext_resource type="Texture2D" uid="uid://bni2irdvhb8x1" path="res://graphics/decals/brushes/brush045.png" id="9_6aa7g"]
+[ext_resource type="Texture2D" uid="uid://ced82emudf878" path="res://graphics/decals/brushes/brush046.png" id="10_vg5a2"]
+[ext_resource type="Texture2D" uid="uid://dvrpryoc4gwq6" path="res://graphics/decals/brushes/brush047.png" id="11_52sfv"]
+[ext_resource type="Texture2D" uid="uid://bt7uo3qia51yw" path="res://graphics/decals/brushes/brush048.png" id="12_g8a10"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_timnt"]
 resource_name = "Soil"
@@ -654,6 +661,44 @@ layer_3/y_sort_enabled = false
 layer_3/y_sort_origin = 0
 layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array()
+
+[node name="Decals" type="Node2D" parent="."]
+
+[node name="Sprite2D7" type="Sprite2D" parent="Decals"]
+modulate = Color(0.384314, 0.290196, 0.109804, 0.0862745)
+position = Vector2(44, -211)
+texture = ExtResource("6_5a5oj")
+
+[node name="Sprite2D10" type="Sprite2D" parent="Decals"]
+modulate = Color(0.384314, 0.290196, 0.109804, 0.0862745)
+position = Vector2(-908, -666)
+texture = ExtResource("7_5er4y")
+
+[node name="Sprite2D11" type="Sprite2D" parent="Decals"]
+modulate = Color(0.384314, 0.290196, 0.109804, 0.0862745)
+position = Vector2(262, 1429)
+texture = ExtResource("8_ya8v6")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Decals"]
+modulate = Color(0.384314, 0.290196, 0.109804, 0.0862745)
+position = Vector2(-163, 947)
+texture = ExtResource("9_6aa7g")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Decals"]
+modulate = Color(0.384314, 0.290196, 0.109804, 0.0862745)
+position = Vector2(-667, -381)
+texture = ExtResource("10_vg5a2")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Decals"]
+modulate = Color(0.384314, 0.290196, 0.109804, 0.0862745)
+position = Vector2(626, -581)
+rotation = 1.5708
+texture = ExtResource("11_52sfv")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Decals"]
+modulate = Color(0.384314, 0.290196, 0.109804, 0.0862745)
+position = Vector2(-960, 1222)
+texture = ExtResource("12_g8a10")
 
 [node name="Lamps" type="Node2D" parent="."]
 

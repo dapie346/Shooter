@@ -489,25 +489,76 @@ position = Vector2(2787, 1763)
 rotation = -1.0636
 
 [node name="Hunter" parent="Enemies" index="1" instance=ExtResource("28_filxm")]
-position = Vector2(-126, 2370)
+position = Vector2(-64, 1739)
 
 [node name="Hunter2" parent="Enemies" index="2" instance=ExtResource("28_filxm")]
 position = Vector2(1510, 3196)
 
-[node name="Scout" parent="Enemies" index="3" instance=ExtResource("26_ohqb8")]
-position = Vector2(-2043, 2572)
+[node name="Hunter3" parent="Enemies" index="3" instance=ExtResource("28_filxm")]
+position = Vector2(5203, -772)
 
-[node name="Scout2" parent="Enemies" index="4" instance=ExtResource("26_ohqb8")]
-position = Vector2(-1237, 2560)
+[node name="Hunter4" parent="Enemies" index="4" instance=ExtResource("28_filxm")]
+position = Vector2(-2714, -296)
 
-[node name="Bug" parent="Enemies" index="5" instance=ExtResource("30_jstka")]
-position = Vector2(-1618, 3121)
+[node name="Scout" parent="Enemies" index="5" instance=ExtResource("26_ohqb8")]
+position = Vector2(-2028, 3089)
 
-[node name="Bug2" parent="Enemies" index="6" instance=ExtResource("30_jstka")]
-position = Vector2(-137, 2959)
+[node name="Scout2" parent="Enemies" index="6" instance=ExtResource("26_ohqb8")]
+position = Vector2(-1213, 3100)
 
-[node name="Drone" parent="Enemies" index="7" instance=ExtResource("31_rktqr")]
-position = Vector2(705, 1722)
+[node name="Scout3" parent="Enemies" index="7" instance=ExtResource("26_ohqb8")]
+position = Vector2(931, 419)
+
+[node name="Scout4" parent="Enemies" index="8" instance=ExtResource("26_ohqb8")]
+position = Vector2(916, 1068)
+
+[node name="Scout5" parent="Enemies" index="9" instance=ExtResource("26_ohqb8")]
+position = Vector2(-1768, 422)
+
+[node name="Scout6" parent="Enemies" index="10" instance=ExtResource("26_ohqb8")]
+position = Vector2(-2833, -5)
+
+[node name="Bug" parent="Enemies" index="11" instance=ExtResource("30_jstka")]
+position = Vector2(-482, 2619)
+
+[node name="Bug2" parent="Enemies" index="12" instance=ExtResource("30_jstka")]
+position = Vector2(-28, 2929)
+
+[node name="Bug3" parent="Enemies" index="13" instance=ExtResource("30_jstka")]
+position = Vector2(1505, 2487)
+
+[node name="Bug4" parent="Enemies" index="14" instance=ExtResource("30_jstka")]
+position = Vector2(1864, 2668)
+
+[node name="Bug5" parent="Enemies" index="15" instance=ExtResource("30_jstka")]
+position = Vector2(1370, 2834)
+
+[node name="Bug6" parent="Enemies" index="16" instance=ExtResource("30_jstka")]
+position = Vector2(5486, 1698)
+
+[node name="Bug7" parent="Enemies" index="17" instance=ExtResource("30_jstka")]
+position = Vector2(5501, 1400)
+
+[node name="Bug8" parent="Enemies" index="18" instance=ExtResource("30_jstka")]
+position = Vector2(5350, 60)
+
+[node name="Bug9" parent="Enemies" index="19" instance=ExtResource("30_jstka")]
+position = Vector2(5274, 494)
+
+[node name="Bug10" parent="Enemies" index="20" instance=ExtResource("30_jstka")]
+position = Vector2(4365, -794)
+
+[node name="Bug11" parent="Enemies" index="21" instance=ExtResource("30_jstka")]
+position = Vector2(3776, -405)
+
+[node name="Drone" parent="Enemies" index="22" instance=ExtResource("31_rktqr")]
+position = Vector2(-1615, 3284)
+
+[node name="Drone2" parent="Enemies" index="23" instance=ExtResource("31_rktqr")]
+position = Vector2(3844, 3601)
+
+[node name="Drone3" parent="Enemies" index="24" instance=ExtResource("31_rktqr")]
+position = Vector2(-1573, -526)
 
 [node name="Player" parent="." index="7"]
 z_index = 7

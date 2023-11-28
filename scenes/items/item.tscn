@@ -34,6 +34,7 @@ shape = SubResource("CircleShape2D_phk8m")
 
 [node name="ItemPickedSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_iktwm")
+volume_db = 15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
