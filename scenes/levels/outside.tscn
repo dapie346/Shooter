@@ -630,6 +630,9 @@ shape = SubResource("RectangleShape2D_lacfs")
 navigation_polygon = SubResource("NavigationPolygon_ohb0w")
 metadata/_edit_lock_ = true
 
+[node name="PlayerReturnPoint" type="Marker2D" parent="." index="13"]
+position = Vector2(361, 409)
+
 [connection signal="player_entered" from="House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]

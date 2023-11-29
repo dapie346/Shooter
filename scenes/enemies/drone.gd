@@ -3,18 +3,18 @@ extends Enemy
 var exploding: bool = false
 var speed: int = 0
 var max_speed: int = 600
-var damage = 40
+var damage = 60
 var explosion_radius = 300
 
 
 func _ready():
-	health = 20
+	health = 40
 	$Explosion.hide()
 	$EnemySprite.show()
 
 
 func _process(delta):
-	if player_nearby and not exploding:
+	if player_nearby and not exploding and alive:
 		look_at(Globals.player_pos)
 		var direction = (Globals.player_pos - global_position).normalized()
 		velocity = direction * speed
@@ -24,6 +24,7 @@ func _process(delta):
 
 
 func death():
+	alive = false
 	exploding = true
 	$AnimationPlayer.play("Explosion")
 	var targets = get_tree().get_nodes_in_group('Containers') + get_tree().get_nodes_in_group('Entities')
@@ -34,13 +35,13 @@ func death():
 
 
 func _on_notice_area_body_entered(body):
-	if body.is_in_group('Player'):
+	if body.is_in_group('Player') and alive:
 		player_nearby = true
 		var tween = create_tween()
 		tween.tween_property(self, "speed", max_speed, 6)
 
 
 func _on_notice_area_body_exited(body):
-	if body.is_in_group('Player'):
+	if body.is_in_group('Player') and alive:
 		player_nearby = false
 		speed = 0

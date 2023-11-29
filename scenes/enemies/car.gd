@@ -2,7 +2,7 @@ extends Enemy
 
 @onready var line1: Line2D = $Turret/RayCast2D/Line2D
 @onready var line2: Line2D = $Turret/RayCast2D2/Line2D
-@export var damage: int = 20
+@export var damage: int = 60
 var target: CharacterBody2D
 
 func _ready():
@@ -15,7 +15,7 @@ func _process(_delta):
 
 
 func _on_notice_area_body_entered(body):
-	if body.is_in_group('Player'):
+	if body.is_in_group('Player') and alive:
 		target = body
 		player_nearby = true
 		$AnimationPlayer.play("laser_load")
@@ -41,14 +41,22 @@ func hit_shader_off():
 	$Turret/Sprite2D.material.set_shader_parameter("progress", 0)
 	
 func fire():
-	if target.has_method("hit"):
-		target.hit(damage)
+	if target and alive:
+		if target.has_method("hit"):
+			target.hit(damage)
+
+func check_conditions():
+	var level = get_parent().get_parent().get_parent().get_parent()
+	if level != null:
+		level.check_for_enemies()
+	Globals.check_for_victory()
 
 func death():
+	alive = false
 	target = null
 	$Explosion.play()
 	$EnemySprite.visible = false
 	$Turret.visible = false
 	$Particles/HitParticles.scale = Vector2(5.0, 5.0)
 	await get_tree().create_timer(0.5).timeout
-	queue_free()
+	get_parent().get_parent().queue_free()

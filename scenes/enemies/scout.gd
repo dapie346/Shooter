@@ -9,7 +9,7 @@ func _ready():
 	health = 50
 	
 func _process(_delta):
-	if player_nearby:
+	if player_nearby and alive:
 		look_at(Globals.player_pos)
 		if can_laser:
 			var marker_node = $LaserSpawnPositions.get_child(right_gun_use)
@@ -25,7 +25,7 @@ func _on_laser_timer_timeout():
 
 
 func _on_notice_area_body_entered(body):
-	if body.is_in_group('Player'):
+	if body.is_in_group('Player') and alive:
 		player_nearby = true
 
 

@@ -13,7 +13,7 @@
 size = Vector2(470, 308)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1lsx1"]
-radius = 1306.0
+radius = 985.032
 
 [sub_resource type="Shader" id="Shader_odc3k"]
 code = "shader_type canvas_item;
@@ -159,24 +159,24 @@ texture = ExtResource("3_cflac")
 [node name="RayCast2D" type="RayCast2D" parent="Turret" index="0"]
 position = Vector2(113, -27)
 rotation = -1.5708
-target_position = Vector2(0, 1200)
+target_position = Vector2(0, 868)
 
 [node name="Line2D" type="Line2D" parent="Turret/RayCast2D" index="0"]
 position = Vector2(-1, 0.400402)
 scale = Vector2(1, 1.4004)
-points = PackedVector2Array(1.00001, 854, 1, 0)
+points = PackedVector2Array(1.00001, 620.251, 1, 0)
 width = 0.0
 default_color = Color(0.698039, 0, 0.00392157, 0.780392)
 
 [node name="RayCast2D2" type="RayCast2D" parent="Turret" index="1"]
 position = Vector2(113, 30)
 rotation = -1.5708
-target_position = Vector2(0, 1200)
+target_position = Vector2(0, 868)
 
 [node name="Line2D" type="Line2D" parent="Turret/RayCast2D2" index="0"]
 position = Vector2(-1, 0.400117)
 scale = Vector2(1, 1.40012)
-points = PackedVector2Array(1.00001, 854, 1, 0)
+points = PackedVector2Array(1.00001, 619.661, 1, 0)
 width = 0.0
 default_color = Color(0.698039, 0, 0.00392157, 0.780392)
 

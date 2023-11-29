@@ -19,7 +19,7 @@ func _ready():
 	health = 100
 
 func _physics_process(_delta):
-	if player_nearby:
+	if player_nearby and alive:
 		var next_path_pos: Vector2 = $NavigationAgent2D.get_next_path_position()
 		var direction: Vector2 = (next_path_pos - global_position).normalized()
 		velocity = direction * speed
@@ -29,7 +29,7 @@ func _physics_process(_delta):
 
 
 func _on_notice_area_body_entered(body):
-	if body.is_in_group('Player'):
+	if body.is_in_group('Player') and alive:
 		player_nearby = true
 		$AnimationPlayer.play("walk")
 
@@ -45,18 +45,18 @@ func _on_navigation_timer_timeout():
 		$NavigationAgent2D.target_position = Globals.player_pos
 		
 func attack():
-	if target.has_method("hit"):
+	if target.has_method("hit") and alive:
 		target.hit(damage)
 		
 
 func _on_attack_area_body_entered(body):
-	if body.is_in_group('Player'):
+	if body.is_in_group('Player') and alive:
 		target = body
 		$AnimationPlayer.play("attack")
 
 
 func _on_attack_area_body_exited(body):
-	if body.is_in_group('Player'):
+	if body.is_in_group('Player') and alive:
 		target = null
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("walk")

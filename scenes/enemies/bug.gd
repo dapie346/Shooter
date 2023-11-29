@@ -1,8 +1,8 @@
 extends Enemy
 
 var in_range: bool = false
-var speed = 350
-var damage = 10
+var speed = 325
+var damage = 15
 var target: CharacterBody2D
 
 
@@ -11,7 +11,7 @@ func _ready():
 
 
 func _process(_delta):
-	if player_nearby:
+	if player_nearby and alive:
 		look_at(Globals.player_pos)
 		if not in_range:
 			var direction = (Globals.player_pos - global_position).normalized()
@@ -20,7 +20,7 @@ func _process(_delta):
 
 
 func _on_attack_area_body_entered(body):
-	if body.is_in_group('Player'):
+	if body.is_in_group('Player') and alive:
 		target = body
 		in_range = true
 		$EnemySprite.play("attack")
@@ -32,13 +32,13 @@ func _on_attack_area_body_exited(body):
 
 
 func _on_enemy_sprite_animation_finished():
-	if in_range and target.has_method("hit"):
+	if in_range and target.has_method("hit") and alive:
 		target.hit(damage)
 		$Timers/AttackTimer.start()
 
 
 func _on_notice_area_body_entered(body):
-	if body.is_in_group('Player'):
+	if body.is_in_group('Player') and alive:
 		player_nearby = true
 		$EnemySprite.play("walk")
 

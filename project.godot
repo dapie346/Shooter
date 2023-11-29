@@ -11,15 +11,15 @@ config_version=5
 [application]
 
 config/name="Shooter"
-run/main_scene="res://scenes/levels/outside.tscn"
+run/main_scene="res://scenes/user interface/menu.tscn"
 config/features=PackedStringArray("4.1", "Mobile")
 config/icon="res://graphics/icon.svg"
 
 [autoload]
 
 Globals="*res://globals/globals.gd"
-TransitionLayer="*res://globals/transition_layer.tscn"
 Music="*res://globals/music.tscn"
+TransitionLayer="*res://globals/transition_layer.tscn"
 
 [display]
 
