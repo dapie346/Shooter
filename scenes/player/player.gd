@@ -33,6 +33,10 @@ func _process(_delta):
 			can_grenade = false
 			$Timers/GrenadeTimer.start()
 			grenade.emit(pos, pointing_direction)
+		
+		if Input.is_action_pressed("exit_to_menu"):
+			Music.stop()
+			get_tree().change_scene_to_file("res://scenes/user interface/menu.tscn")
 
 
 func _on_laser_timer_timeout():

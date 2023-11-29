@@ -53,6 +53,7 @@ func check_conditions():
 
 func death():
 	alive = false
+	Globals.record_enemy_defeat(get_parent().get_parent().get_name())
 	target = null
 	$Explosion.play()
 	$EnemySprite.visible = false

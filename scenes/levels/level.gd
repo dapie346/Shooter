@@ -6,6 +6,21 @@ var grenade_scene: PackedScene = preload("res://scenes/projectiles/grenade.tscn"
 var item_scene: PackedScene = preload("res://scenes/items/item.tscn")
 
 func _ready():
+	
+	Globals.current_level = get_name()
+	
+	if Globals.current_level in Globals.defeated_enemies:
+		for enemy_name in Globals.defeated_enemies[Globals.current_level]:
+			var enemy = find_node_by_name($Enemies, enemy_name)
+			if enemy:
+				enemy.queue_free()
+	
+	if Globals.current_level in Globals.opened_containers:
+		for container_name in Globals.opened_containers[Globals.current_level]:
+			var container = find_node_by_name($Objects/Containers, container_name)
+			if container:
+				container.open_lid()
+	
 	for container in get_tree().get_nodes_in_group('Containers'):
 		container.connect("open", _on_container_opened)
 	for scout in get_tree().get_nodes_in_group('Scouts'):
@@ -35,3 +50,9 @@ func create_laser(pos, direction):
 	laser.rotation_degrees = rad_to_deg(direction.angle()) + 90
 	laser.direction = direction
 	$Projectiles.add_child(laser)
+
+func find_node_by_name(parent_node, name):
+	for child in parent_node.get_children():
+		if child.name == name:
+			return child
+	return null

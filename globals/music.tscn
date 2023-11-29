@@ -1,11 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm3qwexkc4o6t"]
+[gd_scene load_steps=5 format=3 uid="uid://cm3qwexkc4o6t"]
 
 [ext_resource type="Script" path="res://globals/music.gd" id="1_iv222"]
 [ext_resource type="AudioStream" uid="uid://crhjmf2nvlw87" path="res://audio/battleThemeA.mp3" id="1_sctdl"]
+[ext_resource type="AudioStream" uid="uid://bo6uvcheh88p6" path="res://audio/game_over.wav" id="3_buxb0"]
+[ext_resource type="AudioStream" uid="uid://bursvdpfxhd84" path="res://audio/success.mp3" id="4_qbfu2"]
 
 [node name="Music" type="Node"]
 script = ExtResource("1_iv222")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BattleMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_sctdl")
 volume_db = -15.0
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_buxb0")
+
+[node name="Success" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_qbfu2")

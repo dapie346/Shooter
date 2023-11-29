@@ -11,6 +11,7 @@ func hit(_damage: int):
 	if closed:
 		closed = false
 		$HitSound.play()
+		Globals.record_opened_container(get_name())
 		open_lid()
 		for i in range(items_spawned):
 			var pos = $SpawnPositions.get_child(randi()%$SpawnPositions.get_child_count()).global_position

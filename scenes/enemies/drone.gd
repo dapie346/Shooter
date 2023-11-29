@@ -1,7 +1,7 @@
 extends Enemy
 
 var exploding: bool = false
-var speed: int = 0
+var speed: int = 100
 var max_speed: int = 600
 var damage = 60
 var explosion_radius = 300
@@ -25,6 +25,7 @@ func _process(delta):
 
 func death():
 	alive = false
+	Globals.record_enemy_defeat(get_name())
 	exploding = true
 	$AnimationPlayer.play("Explosion")
 	var targets = get_tree().get_nodes_in_group('Containers') + get_tree().get_nodes_in_group('Entities')
@@ -39,9 +40,3 @@ func _on_notice_area_body_entered(body):
 		player_nearby = true
 		var tween = create_tween()
 		tween.tween_property(self, "speed", max_speed, 6)
-
-
-func _on_notice_area_body_exited(body):
-	if body.is_in_group('Player') and alive:
-		player_nearby = false
-		speed = 0

@@ -560,6 +560,18 @@ position = Vector2(3844, 3601)
 [node name="Drone3" parent="Enemies" index="24" instance=ExtResource("31_rktqr")]
 position = Vector2(-1573, -526)
 
+[node name="Drone4" parent="Enemies" index="25" instance=ExtResource("31_rktqr")]
+position = Vector2(3457, 3760)
+
+[node name="Drone5" parent="Enemies" index="26" instance=ExtResource("31_rktqr")]
+position = Vector2(2736, 4088)
+
+[node name="Drone6" parent="Enemies" index="27" instance=ExtResource("31_rktqr")]
+position = Vector2(2363, 3923)
+
+[node name="Drone7" parent="Enemies" index="28" instance=ExtResource("31_rktqr")]
+position = Vector2(3120, 3586)
+
 [node name="Player" parent="." index="7"]
 z_index = 7
 position = Vector2(-1910, 1662)

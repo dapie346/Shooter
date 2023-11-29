@@ -29,6 +29,7 @@ func check_conditions():
 
 func death():
 	alive = false
+	Globals.record_enemy_defeat(get_name())
 	$EnemySprite.visible = false
 	$Particles/HitParticles.scale = Vector2(5.0, 5.0)
 	await get_tree().create_timer(0.5).timeout

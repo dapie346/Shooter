@@ -172,4 +172,3 @@ stream = ExtResource("5_jy1iv")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="8"]
 
 [connection signal="body_entered" from="NoticeArea" to="." method="_on_notice_area_body_entered"]
-[connection signal="body_exited" from="NoticeArea" to="." method="_on_notice_area_body_exited"]
